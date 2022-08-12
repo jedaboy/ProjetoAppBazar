@@ -1,12 +1,12 @@
 package com.IgrejaBatista.NovaVida.services;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.IgrejaBatista.NovaVida.domain.Categoria;
 import com.IgrejaBatista.NovaVida.repositories.CategoriaRepository;
+
 
 @Service
 public class CategoriaService {
