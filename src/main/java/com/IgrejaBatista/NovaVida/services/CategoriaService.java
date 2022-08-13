@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.IgrejaBatista.NovaVida.domain.Categoria;
 import com.IgrejaBatista.NovaVida.repositories.CategoriaRepository;
+import com.IgrejaBatista.NovaVida.services.exceptions.ObjectNotFoundException;
 
 
 @Service
@@ -16,6 +17,9 @@ public class CategoriaService {
 	
 	public Categoria find(Integer id) {
 		Categoria obj = repo.findById(id).orElse(null);
+		if(obj == null) {
+			throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName());
+		}
 		return obj;
 	}
 }
