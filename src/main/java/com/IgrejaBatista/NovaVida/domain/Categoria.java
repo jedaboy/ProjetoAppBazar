@@ -1,12 +1,17 @@
 package com.IgrejaBatista.NovaVida.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Categoria  implements Serializable {
@@ -18,6 +23,11 @@ public class Categoria  implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "Categoria_id")
+	private List<Produto> products = new ArrayList<>();
+
 
 	public Categoria(Integer id, String name) {
 		super();
@@ -60,5 +70,13 @@ public class Categoria  implements Serializable {
 
 	public Categoria() {
 
+	}
+
+	public List<Produto> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Produto> products) {
+		this.products = products;
 	}
 }
