@@ -1,20 +1,23 @@
 package com.IgrejaBatista.NovaVida.resources.exception;
 
 import java.io.Serializable;
+import java.util.Date;    
 
 public class StandardError implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Integer status;
 	private String msg;
-	private Long timeStamp;
+	private String timeStamp;
+	
 	public Integer getStatus() {
 		return status;
 	}
+	
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public StandardError(Integer status, String msg, Long timeStamp) {
+	public StandardError(Integer status, String msg, String timeStamp) {
 		super();
 		this.status = status;
 		this.msg = msg;
@@ -26,10 +29,10 @@ public class StandardError implements Serializable{
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	public Long getTimeStamp() {
+	public String getTimeStamp() {
 		return timeStamp;
 	}
-	public void setTimeStamp(Long timeStamp) {
+	public void setTimeStamp(String timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 }

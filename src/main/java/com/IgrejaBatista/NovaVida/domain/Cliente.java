@@ -14,7 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Categoria  implements Serializable {
+public class Cliente  implements Serializable {
 	/**
 	 * 
 	 */
@@ -23,12 +23,8 @@ public class Categoria  implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	
-	@OneToMany(mappedBy="category")
-	private List<Produto> products = new ArrayList<>();
 
-
-	public Categoria(Integer id, String name) {
+	public Cliente(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -63,19 +59,12 @@ public class Categoria  implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categoria other = (Categoria) obj;
+		Cliente other = (Cliente) obj;
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
 
-	public Categoria() {
+	public Cliente() {
 
 	}
 
-	public List<Produto> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<Produto> products) {
-		this.products = products;
-	}
 }
